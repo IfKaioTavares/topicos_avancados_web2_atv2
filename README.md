@@ -1,7 +1,3 @@
-Claro! Aqui está o conteúdo completo do `README.md` para o seu projeto, formatado em Markdown e cobrindo todos os requisitos da atividade:
-
----
-
 # 🛰️ Projeto IoT Multprotocol - AMQP + HTTP + Node-RED
 
 Simulação funcional de um sistema IoT com sensores e atuadores usando dois protocolos de comunicação diferentes (AMQP e HTTP), integração com **RabbitMQ** e **Node-RED**, visualização de dados e mecanismo de alerta inteligente.
