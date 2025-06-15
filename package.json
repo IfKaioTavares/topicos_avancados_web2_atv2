@@ -1,0 +1,19 @@
+{
+  "name": "iot-simulator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "scripts": {
+      "start:sensors": "node sensors/temperatureSensor.js & node sensors/gasSensor.js",
+      "start:receiver": "node receiver/centralMonitor.js",
+      "start:http": "node rest-simulator/httpSensor.js"
+    }
+  },
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.1",
+    "express": "^4.19.2"
+  }
+}

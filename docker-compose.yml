@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+  node-red:
+    image: nodered/node-red:latest
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./node-red:/data

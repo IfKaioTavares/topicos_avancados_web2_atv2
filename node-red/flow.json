@@ -1,0 +1,58 @@
+[
+  {
+    "id": "http-in",
+    "type": "http in",
+    "z": "main",
+    "name": "Recebe sensor HTTP",
+    "url": "/from-sensor",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 140,
+    "y": 100,
+    "wires": [["function-process"]]
+  },
+  {
+    "id": "function-process",
+    "type": "function",
+    "z": "main",
+    "name": "Processa dados",
+    "func": "// Verifica tipo e valor\nlet payload = msg.payload;\n\nif (payload.type === \"temperature\" && parseFloat(payload.value) > 30) {\n    node.warn(\"[ALERTA] Temperatura acima de 30°C: \" + payload.value);\n}\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 350,
+    "y": 100,
+    "wires": [["debug-1", "http-response"]]
+  },
+  {
+    "id": "debug-1",
+    "type": "debug",
+    "z": "main",
+    "name": "Ver dados recebidos",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 570,
+    "y": 80,
+    "wires": []
+  },
+  {
+    "id": "http-response",
+    "type": "http response",
+    "z": "main",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 570,
+    "y": 120,
+    "wires": []
+  }
+]
